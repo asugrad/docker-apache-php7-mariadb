@@ -13,6 +13,8 @@ RUN chown -R www-data:www-data /var/www/html \
 RUN docker-php-ext-install mbstring pdo pdo_mysql \
     && chown -R www-data:www-data /var/www/html
 
+RUN service apache2 restart
+
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
