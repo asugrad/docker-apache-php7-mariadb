@@ -13,8 +13,6 @@ RUN chown -R www-data:www-data /var/www/html \
 RUN docker-php-ext-install mbstring pdo pdo_mysql \
     && chown -R www-data:www-data /var/www/html
 
-RUN apt-get install php-cli php-pear php-dev php-mbstring
-
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
